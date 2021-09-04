@@ -102,7 +102,7 @@ const TodoList = () => {
 
                                 <hr />
 
-                                </li>
+                            </li>
                         </ul>
                     </div>
                 </div>

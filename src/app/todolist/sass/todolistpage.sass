@@ -92,3 +92,27 @@
                                     &:last-child
                                         &:hover
                                             background: #ffe1e1
+
+@media screen and (max-width: 420px)
+    .todo_list_container
+        .todo_list_content
+            align-self: flex-start
+            grid-row-gap: 15px
+            top: 10px
+            .todo_input_form
+                flex-direction: column
+                row-gap: 15px
+                input
+                    width: 100%
+                button
+                    width: 100%
+            .card_container
+                &--head
+                    flex-direction: column
+                    row-gap: 15px
+                &--body
+                    .list_todo
+                        height: 370px
+                        &--item
+                            p
+                                padding: 20px 0
