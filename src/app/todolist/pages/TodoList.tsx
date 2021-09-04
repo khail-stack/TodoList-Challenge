@@ -6,7 +6,7 @@ import TodoListContainer from '../components/TodoListContainer'
 import TodoAddForm from '../components/TodoAddForm'
 
 const init = () => {
-    return JSON.parse(localStorage.getItem('todoList') || '[]') || [];
+    return JSON.parse(localStorage.getItem('todoListChallenge') || '[]') || [];
 }
 
 const TodoList = (): JSX.Element => {
@@ -15,9 +15,18 @@ const TodoList = (): JSX.Element => {
 
     useEffect(() => {
         
-        localStorage.setItem('todoList', JSON.stringify(state))
+        localStorage.setItem('todoListChallenge', JSON.stringify(state))
         
     }, [state])
+
+    const handleDeleteTodo = (id : string) => {
+
+        dispatch({
+            type: 'deleteTodo',
+            payload: id
+        })
+
+    }
 
     return (
         <div className="todo_list_container">
@@ -35,7 +44,7 @@ const TodoList = (): JSX.Element => {
                     </div>
                     <hr />
                     <div className="card_container--body">
-                        <TodoListContainer todoList={state} />
+                        <TodoListContainer todoList={state} handleDeleteTodo={handleDeleteTodo}/>
                     </div>
                 </div>
 

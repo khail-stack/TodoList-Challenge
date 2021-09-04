@@ -2,15 +2,16 @@ import React from 'react'
 import TodoListItem from './TodoListItem'
 
 interface Props {
-    todoList: []
+    todoList: [],
+    handleDeleteTodo: Function
 }
 
-const TodoListContainer = ({todoList} : Props) : JSX.Element => {
+const TodoListContainer = ({todoList, handleDeleteTodo} : Props) : JSX.Element => {
     return (
         <ul className="list_todo">
             { 
                 todoList.map((todo : any, index: number) => (
-                    <TodoListItem key={index} todo={todo} />
+                    <TodoListItem key={index} todo={todo} handleDeleteTodo={handleDeleteTodo} />
                 ))
             }
         </ul>
