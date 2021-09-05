@@ -11,9 +11,14 @@ const TodoListContainer = ({todoList, handleDeleteTodo, handleEditTodo} : Props)
     return (
         <ul className="list_todo">
             { 
-                todoList.map((todo : any, index: number) => (
+                todoList.length ? todoList.map((todo : any, index: number) => (
                     <TodoListItem key={index} todo={todo} handleDeleteTodo={handleDeleteTodo} handleEditTodo={handleEditTodo} />
-                ))
+                )) 
+                : 
+                <li className="list_todo--item">
+                    <p className="noitems"><span>No hay tareas</span></p>
+                    <hr />
+                </li>
             }
         </ul>
     )
