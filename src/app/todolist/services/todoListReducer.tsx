@@ -13,9 +13,8 @@ export const todoListReducer = (state = [], action : IAction) : any => {
         case 'deleteTodo':
             return state.filter( (todo: any) => todo.id !== action.payload);
 
-        // case 'updateTodo':
-            
-        //     break;
+        case 'updateTodo':
+            return state.map((todo: any) => todo.id === action.payload.id ? action.payload : todo)
     
         default:
             return state;

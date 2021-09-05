@@ -7,7 +7,7 @@ interface Props {
     handleDeleteTodo: Function
 }
 
-const DeleteTodoModal = ({todoId, setDeleteModal, handleDeleteTodo} : Props) => {
+const DeleteTodoModal = ({todoId, setDeleteModal, handleDeleteTodo} : Props) : JSX.Element => {
 
     const deleteTodoFunc = () => {
         handleDeleteTodo(todoId)

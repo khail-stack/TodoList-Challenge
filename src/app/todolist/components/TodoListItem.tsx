@@ -10,10 +10,11 @@ interface Props {
         id: string,
         text: string
     },
-    handleDeleteTodo: Function
+    handleDeleteTodo: Function,
+    handleEditTodo: Function
 }
 
-const TodoListItem = ({todo, handleDeleteTodo} : Props) : JSX.Element => {
+const TodoListItem = ({todo, handleDeleteTodo, handleEditTodo} : Props) : JSX.Element => {
 
     const [editModal, setEditModal] = useState(false)
     const [deleteModal, setDeleteModal] = useState(false)
@@ -33,7 +34,7 @@ const TodoListItem = ({todo, handleDeleteTodo} : Props) : JSX.Element => {
             </ContainerModal>
             
             <ContainerModal showModal={editModal} setShowModal={setEditModal} title="Editar Todo">
-                <EditTodoModal />
+                <EditTodoModal todo={todo} setEditModal={setEditModal} handleEditTodo={handleEditTodo} />
             </ContainerModal>
         </li>    
     )

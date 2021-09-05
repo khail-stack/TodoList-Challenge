@@ -14,26 +14,27 @@ const TodoList = (): JSX.Element => {
     const [state, dispatch] = useReducer(todoListReducer, [], init)
 
     useEffect(() => {
-        
         localStorage.setItem('todoListChallenge', JSON.stringify(state))
-        
     }, [state])
 
     const handleDeleteTodo = (id : string) => {
-
         dispatch({
             type: 'deleteTodo',
             payload: id
         })
+    }
 
+    const handleEditTodo = (updatedTodo : Object) => {
+        dispatch({
+            type: 'updateTodo',
+            payload: updatedTodo
+        })
     }
 
     return (
         <div className="todo_list_container">
             <div className="todo_list_content">
-                
                 <TodoAddForm dispatchAddTodo={dispatch} />
-
                 <div className="card_container">
                     <div className="card_container--head">
                         <h3>Todo List</h3>
@@ -44,12 +45,10 @@ const TodoList = (): JSX.Element => {
                     </div>
                     <hr />
                     <div className="card_container--body">
-                        <TodoListContainer todoList={state} handleDeleteTodo={handleDeleteTodo}/>
+                        <TodoListContainer todoList={state} handleDeleteTodo={handleDeleteTodo} handleEditTodo={handleEditTodo}/>
                     </div>
                 </div>
-
-                <h6>Postulante: Khail Mogollon</h6>
-
+                <p>Postulante: Khail Mogollon</p>
             </div>
         </div>
     )
